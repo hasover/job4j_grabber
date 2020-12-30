@@ -54,8 +54,8 @@ public class SqlRuParse {
         return formattedDate + " " + time;
     }
 
-    public static void main(String[] args) throws IOException, ParseException {
-        Document doc = Jsoup.connect("https://www.sql.ru/forum/job-offers").get();
+    public static void urlToParse(String url) throws Exception {
+        Document doc = Jsoup.connect(url).get();
         Elements row = doc.select(".postslisttopic");
         Elements dates = doc.select(".altCol");
         int index = 1;
@@ -65,6 +65,14 @@ public class SqlRuParse {
             System.out.println(href.text());
             System.out.println(formatDate(dates.get(index).text()));
             index += 2;
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        String url = "https://www.sql.ru/forum/job-offers/";
+        for (int i = 1; i <= 5; i++) {
+            urlToParse(url + i);
         }
     }
 }
