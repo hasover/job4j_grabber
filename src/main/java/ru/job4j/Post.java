@@ -1,0 +1,37 @@
+package ru.job4j;
+
+public class Post {
+    private String link;
+    private String description;
+    private String created;
+
+    public Post(String link, String description, String created) {
+        this.link = link;
+        this.description = description;
+        this.created = created;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+}
