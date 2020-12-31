@@ -2,11 +2,13 @@ package ru.job4j;
 
 public class Post {
     private String link;
+    private String title;
     private String description;
     private String created;
 
-    public Post(String link, String description, String created) {
+    public Post(String link, String title, String description, String created) {
         this.link = link;
+        this.title = title;
         this.description = description;
         this.created = created;
     }
@@ -17,6 +19,14 @@ public class Post {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
