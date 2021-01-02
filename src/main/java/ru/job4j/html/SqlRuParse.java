@@ -4,6 +4,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import ru.job4j.Post;
+
+import java.io.IOException;
 
 public class SqlRuParse {
 
@@ -14,11 +17,22 @@ public class SqlRuParse {
         int index = 1;
         for (Element td : row) {
             Element href = td.child(0);
-            System.out.println(href.attr("href"));
-            System.out.println(href.text());
-            System.out.println(DateUtils.formatDate(dates.get(index).text()));
-            index += 2;
+            String postUrl = href.attr("href");
+            Post post = getPostDetails(postUrl);
+            System.out.println(post);
         }
+    }
+
+    public static Post getPostDetails(String url) throws Exception {
+        Document doc = Jsoup.connect(url).get();
+        String title = doc.select(".messageHeader").get(0).text();
+        String description = doc.select(".msgbody").get(1).text();
+        String time = doc.select(".msgFooter").text().split("\\s\\[")[0];
+        return new Post(
+                url,
+                title,
+                description,
+                DateUtils.formatDate(time));
     }
 
     public static void main(String[] args) throws Exception {

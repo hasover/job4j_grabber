@@ -44,4 +44,18 @@ public class Post {
     public void setCreated(String created) {
         this.created = created;
     }
+
+    @Override
+    public String toString() {
+        return "Post{"
+                +
+                "link='"
+                + link
+                + '\''
+                + ", title='"
+                + title
+                + '\''
+                + ", description='" + description + '\''
+                + ", created='" + created + '\'' + '}';
+    }
 }
