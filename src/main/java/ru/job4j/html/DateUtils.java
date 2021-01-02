@@ -26,7 +26,7 @@ public class DateUtils {
 
     }
 
-    public static String formatDate(String strToFormat) throws ParseException {
+    public static String formatDate(String strToFormat) {
         String[] strData = strToFormat.trim().split(",\\s");
         String time = strData[1];
         String dateToFormat = strData[0];
