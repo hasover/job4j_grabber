@@ -1,4 +1,4 @@
-package ru.job4j;
+package ru.job4j.grabber;
 
 public class Post {
     private String link;
