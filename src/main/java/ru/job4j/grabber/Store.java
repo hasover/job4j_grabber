@@ -7,4 +7,6 @@ public interface Store {
 
     List<Post> getAll();
 
+    Post findById(String id);
+
 }
