@@ -4,6 +4,7 @@ import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 import ru.job4j.html.SqlRuParse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -56,8 +57,9 @@ public class Grabber implements Grab {
     }
 
     public void cfg() {
-        try {
-            cfg.load(Grabber.class.getClassLoader().getResourceAsStream("app.properties"));
+        try (InputStream resourceAsStream = Grabber.class.getClassLoader().
+                getResourceAsStream("app.properties")) {
+            cfg.load(resourceAsStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
