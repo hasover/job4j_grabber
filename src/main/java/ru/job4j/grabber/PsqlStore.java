@@ -38,7 +38,7 @@ public class PsqlStore implements Store, AutoCloseable {
             statement.setTimestamp(4, new Timestamp(millis));
             statement.execute();
         } catch (Exception ex) {
-
+            ex.printStackTrace();
         }
     }
 
@@ -57,7 +57,7 @@ public class PsqlStore implements Store, AutoCloseable {
                 ));
             }
         } catch (Exception ex) {
-
+            ex.printStackTrace();
         }
         return posts;
     }
@@ -78,7 +78,7 @@ public class PsqlStore implements Store, AutoCloseable {
 
             }
         } catch (Exception ex) {
-
+            ex.printStackTrace();
         }
         return post;
     }
